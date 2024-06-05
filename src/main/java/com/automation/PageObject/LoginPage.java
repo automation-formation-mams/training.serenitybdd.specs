@@ -17,5 +17,7 @@ public class LoginPage extends PageObject {
     @FindBy(xpath = "//button[@data-qa='login-button']")
     public WebElement LoginBtn;
 
+    // ==================================== METHODS ==================================== //
+
 
 }
