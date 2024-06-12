@@ -1,279 +1,291 @@
-# Getting started with Serenity and Cucumber
+<a id="summary">
 
-Serenity BDD is a library that makes it easier to write high quality automated acceptance tests, with powerful reporting and living documentation features. It has strong support for both web testing with Selenium, and API testing using RestAssured.
+# ![Serenity BDD](docs/serenity-bdd-logo.png "Logo Title Text 1")
 
-Serenity strongly encourages good test automation design, and supports several design patterns, including classic Page Objects, the newer Lean Page Objects/ Action Classes approach, and the more sophisticated and flexible Screenplay pattern.
+[![Gitter](https://badges.gitter.im/serenity-bdd/serenity-core.svg)](https://gitter.im/serenity-bdd/serenity-core?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![Continuous Integration](https://github.com/serenity-bdd/serenity-core/workflows/Continuous%20Integration/badge.svg)
+[![javadoc](https://javadoc.io/badge2/net.serenity-bdd/serenity-core/javadoc.svg)](https://javadoc.io/doc/net.serenity-bdd/serenity-core)
 
-The latest version of Serenity supports Cucumber 6.x.
 
-## The starter project
-The best place to start with Serenity and Cucumber is to clone or download the starter project on Github ([https://github.com/serenity-bdd/serenity-cucumber-starter](https://github.com/serenity-bdd/serenity-cucumber-starter)). This project gives you a basic project setup, along with some sample tests and supporting classes. There are two versions to choose from. The master branch uses a more classic approach, using action classes and lightweight page objects, whereas the **[screenplay](https://github.com/serenity-bdd/serenity-cucumber-starter/tree/screenplay)** branch shows the same sample test implemented using Screenplay.
+### That feeling you get when you know you can trust your tests
 
-### The project directory structure
-The project has build scripts for both Maven and Gradle, and follows the standard directory structure used in most Serenity projects:
-```Gherkin
-src
-  + main
-  + test
-    + java                        Test runners and supporting code
-    + resources
-      + features                  Feature files
-     + search                  Feature file subdirectories 
-             search_by_keyword.feature
+Serenity BDD is a library designed to make writing automated acceptance tests easier, and more fun.
+
+Learn more about Serenity, and discover tutorials, docs and more, on the [official Serenity BDD website](http://www.serenity-bdd.info)
+
+## What does it do?
+
+Serenity helps structure your automated acceptance tests in order to make them easier to understand and maintain,
+and provides great reporting capabilties on top of tools like Cucumber and JUnit. It also provides tight integration
+with WebDriver and RestAssured, to make both web testing and API testing easier and more efficient.
+
+Serenity works in two ways:
+- It instruments your test code and reports on the steps that your tests execute to achieve their goals, and stores the test
+  results in a standardized format;
+- It aggregates these test results into clear and meaningful reports, that reflect not only the outcomes of your tests,
+  but also the status of your project. For example, you can get Serenity to report on what requirements, features or stories
+  you have implemented, and how well (or not) they were tested.
+
+### Serenity makes your test cleaner
+
+Serenity provides libraries and patterns that make it easier to write cleaner, more reusable code. It provides tight integration with Selenium WebDriver, and modern testing patterns such as Lean Page Objects, Action Classes, and the [Screenplay Pattern](https://serenity-bdd.github.io/theserenitybook/latest/serenity-screenplay.html). You can learn more about these patterns [in this article](https://johnfergusonsmart.com/page-objects-that-suck-less-tips-for-writing-more-maintainable-page-objects/).
+
+### Serenity makes your reports richer
+
+Serenity reports aim to be more than simple test reports - they are designed to provide _living documentation_ of your product.
+The reports give an overview of the test results:
+
+![Serenity Test Summary](docs/serenity-dashboard.png "Logo Title Text 1")
+
+But they also let you document your requirements hierarchy, and the state of the acceptance criteria associated with your requirements:
+
+![Serenity Requirements Summary](docs/serenity-requirements.png "Logo Title Text 1")
+
+When you use BDD tools like Cucumber or JBehave, Serenity will include the feature details in a format that both team members and business folk can read:
+
+![Serenity Feature Details](docs/serenity-feature-overview.png "Logo Title Text 1")
+
+And if you drill into the details, Serenity will give you a detailed account of how the test played out, including interactions and screenshots:
+
+![Serenity Test Details](docs/serenity-details.png "Logo Title Text 1")
+
+## Found a bug?
+You can raise a defect here. Note that this is an open source project, so **the fastest way to fix an issue is to fix it yourself and to propose a pull request**.
+
+Note that pretty much **all current development on the Serenity code base is driven by commercial support contracts**. As with any open source project, support is never free - it is just payed for from a volunteer's spare time, through a sponsoring organisation or via a [commercial support package](https://www.serenitydojo.academy/serenity-bdd-support-packages). Currently, we have very little bandwidth for issues which are not requested or prioritised by a client with a commercial support package, so if an issue is important to you, your project or your company, a [commercial support package](https://www.serenitydojo.academy/serenity-bdd-support-packages) is the more effective and most ethical way of getting a fix or implementation done quickly.
+
+We also propose [one-on-one troubleshooting sessions](https://www.serenitydojo.academy/serenity-bdd-support-packages) to help you get your problems resolved faster.
+
+Some companies and individuals who find that Serenity BDD helps in their daily work choose to give back by sponsoring the project in different capacities. Bug fixes or change requests coming from sponsors are generally prioritised over other requests.
+
+Here are a few tips to make it easier for us to help you:
+
+### Give as much context as possible.
+
+Simply saying "The reports don't get generated" will not help us very much. Give as much context as possible, including:
+- Serenity version (serenity-core and the other serenity libraries, such as serenity-cucummber and serenity-jbehave)
+- If you are using Firefox, firefox and geckodriver version
+- If you are using Chrome, chrome and chromedriver version
+- What Operating System are you using
+
+Also, make sure you try with the latest version of Serenity - your bug may already be fixed, and in any case error messages from the latest version will be more relevant when we try to track down the source of the problem.
+
+### Use living documentation
+
+It is easier for us to fix something we can see breaking. If someone has to volunteer an hour of there time to reproduce a defect, Start of with one of the Serenity started projects (like [this one](https://github.com/serenity-bdd/serenity-cucumber-starter) and add a scenario or test case that both illustrates and describes your issue. If possible, write the test to describe the behaviour you expect, so that it fails when the defect is present, and that it will pass when the defect is fixed.
+
+**You can help out by sponsoring Serenity BDD directly here:
+[:heart: Sponsor](https://github.com/sponsors/serenity-bdd)**
+
+Take a look at [this article](https://opensource.guide/how-to-contribute/#communicating-effectively) for more information.
+
+## Need Commercial Support?
+
+If you are using Serenity for your company projects and need faster or more in-depth support, including training and coaching, why not ask your company to explore our **[commercial support options](https://www.serenitydojo.academy/serenity-bdd-support-packages)**? We recognize that businesses have unique needs and require specialized attention. That's why we've designed a comprehensive range of support options tailored to your requirements. Whether it's prioritized tickets for pressing issues, custom Serenity work to integrate seamlessly with your existing systems, or remote mentoring and pair programming sessions to enhance your team's capabilities, we've got you covered. Our packages even include options for unlimited email support and additional live support hours at competitive rates. With monthly and annual payment plans, our support models aim to supercharge your Serenity experience, reducing downtime, accelerating development, and ensuring you get the most value out of your automation efforts. Let's chat and find the right fit for your needs!
+
+## Where can I learn more?
+
+Check out Serenity BDD in more detail here:
+* [User Guide](https://serenity-bdd.github.io/documentation/)
+* [![Javadocs](https://www.javadoc.io/badge/net.serenity-bdd/serenity-core.svg)](https://www.javadoc.io/doc/net.serenity-bdd/serenity-core)
+* [The Serenity BDD Web Site](http://serenity-bdd.info)
+* **[The Serenity Dojo Training Library](https://expansion.serenity-dojo.com/)** which includes a comprehensive range of free tutorials and more in depth courses on Serenity BDD.
+* [**Introductory Course**: Effective UI Test Automation With Serenity BDD and Selenium](https://expansion.serenity-dojo.com/courses/testing-web-applications-with-serenity-bdd)
+* [**Master The Serenity Screenplay Pattern**: Next-generation Automated Acceptance Tests With Serenity Screenplay](https://expansion.serenity-dojo.com/courses/writing-more-sustainable-tests-with-the-screenplay-pattern)
+
+## Release Notes
+Release notes are available for major releases:
+* [4.0.1](docs/release-notes/4.0.1.md)
+* [3.2.4](docs/release-notes/3.2.4.md)
+* [3.2.0](docs/release-notes/3.2.0.md)
+* [2.3.2](docs/release-notes/2.3.2.md)
+* [2.2.0](docs/release-notes/2.2.0.md)
+* [2.1.5](docs/release-notes/2.1.5.md)
+* [2.1.4](docs/release-notes/2.1.4.md)
+* [2.1.2](docs/release-notes/2.1.2.md)
+
+## What is the latest stable version I should use?
+
+The tables below list the latest stable and tested versions of Serenity BDD and other related libraries.
+
+### Serenity with JUnit
+
+| serenity-core | serenity-maven-plugin | Selenium version | RestAssured version | Appium client version |
+|---------------|-----------------------|------------------|---------------------|-----------------------|
+| 4.1.3         | 4.1.3                 | 4.18.1           | 5.3.1               | 8.3.0                 |
+| 4.1.0         | 4.1.0                 | 4.16.0           | 5.3.1               | 8.3.0                 |
+| 4.0.12        | 4.0.12                | 4.12.1           | 5.3.1               | 8.3.0                 |
+| 4.0.1         | 4.0.1                 | 4.12.0           | 5.3.1               | 8.3.0                 |
+| 3.9.8         | 3.9.8                 | 4.11.0           | 5.2.0               | 8.3.0                 |
+| 3.6.12        | 3.6.12                | 4.8.0            | 5.2.0               | 8.3.0                 |
+| 3.6.12        | 3.6.12                | 4.8.0            | 5.2.0               | 8.3.0                 |
+| 3.3.10        | 3.3.10                | 4.5.2            | 5.2.0               | 8.2.0                 |
+| 3.3.4         | 3.3.4                 | 4.4.0            | 5.1.1               | 8.1.1                 |
+| 3.2.4         | 3.2.4                 | 4.1.3            | 5.0.1               | 8.0.0                 |
+| 3.2.2         | 3.2.2                 | 4.1.2            | 4.5.1               | 8.0.0                 |
+| 3.1.15        | 3.1.15                | 4.1.1            | 4.4.0               | 8.0.0-BETA            |
+| 3.1.1         | 3.1.1                 | 4.0.0            | 4.3.3               | 8.0.0-BETA            |
+| 3.0.5         | 3.0.5                 | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.5.8         | 2.5.8                 | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.5.7         | 2.5.7                 | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.4.51        | 2.4.51                | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.4.34        | 2.4.34                | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.4.24        | 2.4.24                | 3.141.59         | 4.3.3               | 7.5.1                 |
+| 2.3.12        | 2.3.12                | 3.141.59         | 4.3.2               | 7.3.0                 |
+| 2.3.5         | 2.3.5                 | 3.141.59         | 4.3.1               | 7.3.0                 |
+| 2.3.4         | 2.3.4                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.2.12        | 2.2.12                | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.2.5         | 2.2.5                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.2.2         | 2.2.2                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.2.0         | 2.2.0                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.1.5         | 2.1.5                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.1.0         | 2.1.0                 | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.0.90        | 2.0.90                | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.0.84        | 2.0.84                | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.0.71        | 2.0.71                | 3.141.59         | 3.3.0               | 7.2.0                 |
+| 2.0.69        | 2.0.69                | 3.141.59         | 3.3.0               | 7.0.0                 |
+| 2.0.56        | 2.0.56                | 3.141.59         | 3.3.0               | 7.0.0                 |
+| 2.0.52        | 2.0.52                | 3.141.59         | 3.3.0               | 7.0.0                 |
+| 2.0.48        | 2.0.48                | 3.141.59         | 3.3.0               | 7.0.0                 |
+
+Sample project: [Serenity JUnit Starter Project](https://github.com/serenity-bdd/serenity-junit-starter).
+
+#### Cucumber 7 (Serenity 3.1.15 onwards)
+| serenity-core | serenity-maven-plugin | serenity-cucumber | Cucumber |
+|---------------|-----------------------|-------------------|----------|
+| 4.1.3         | 4.1.3                 | 4.1.3             | 7.15.0   |
+| 4.0.12        | 4.0.12                | 4.0.12            | 7.14.0   |
+| 4.0.1         | 4.0.1                 | 4.0.1             | 7.13.0   |
+| 3.9.8         | 3.9.8                 | 3.9.8             | 7.13.0   |
+| 3.6.12        | 3.6.12                | 3.6.12            | 7.11.0   |
+| 3.3.10        | 3.3.10                | 3.3.10            | 7.8.1    |
+| 3.3.4         | 3.3.4                 | 3.3.4             | 7.4.1    |
+| 3.2.4         | 3.2.4                 | 3.2.4             | 7.2.3    |
+| 3.1.20        | 3.1.20                | 3.1.20            | 7.1.1    |
+| 3.1.15        | 3.1.15                | 3.1.15            | 7.0.0    |
+
+#### Cucumber 6
+_Note:_ Cucumber 6 is no longer supported in newer versions of Serenity.
+
+| serenity-core | serenity-maven-plugin | serenity-cucumber6 | Cucumber            |
+|---------------|-----------------------|--------------------|---------------------|
+| 2.5.8         | 2.5.8                 |  2.5.8             | 6.10.4              |
+| 2.5.7         | 2.5.7                 |  2.5.7             | 6.10.4              |
+| 2.4.51        | 2.4.51                |  2.4.51            | 6.10.4              |
+| 2.4.34        | 2.4.34                |  2.4.34            | 6.10.4              |
+| 2.4.24        | 2.4.24                |  2.4.24            | 6.10.2              |
+| 2.3.12        | 2.3.12                |  2.3.12            | 6.9.1               |
+| 2.3.4         | 2.3.4                 |  2.3.4             | 6.6.0               |
+| 2.3.4         | 2.3.4                 |  2.3.4             | 6.6.0               |
+| 2.2.12        | 2.2.5                 |  2.2.5             | 5.6.0               |
+| 2.2.2         | 2.2.2                 |  2.2.2             | 5.6.0               |
+| 2.2.0         | 2.2.0                 |  2.2.0             | 5.5.0               |
+
+Sample project: [Serenity Cucumber Starter Project](https://github.com/serenity-bdd/serenity-cucumber-starter).
+
+#### Cucumber 4
+
+_Note:_ Cucumber 4 is no longer supported in newer versions of Serenity.
+
+| serenity-core | serenity-maven-plugin | serenity-cucumber4 | Cucumber            |
+|---------------|-----------------------|--------------------|---------------------|
+| 2.1.5         | 2.1.5                 |  2.1.2             | 4.8.0               |
+| 2.1.0         | 2.1.0                 |  2.1.0             | 4.8.0               |
+| 2.0.90        | 2.0.90                | 1.0.29             | 4.8.0               |
+| 2.0.84        | 2.0.84                | 1.0.21             | 4.2.0               |
+| 2.0.69        | 2.0.69                | 1.0.18             | 4.2.0               |
+| 2.0.56        | 2.0.56                | 1.0.15             | 4.2.0               |
+| 2.0.54        | 2.0.54                | 1.0.14             | 4.2.0               |
+| 2.0.52        | 2.0.52                | 1.0.14             | 4.2.0               |
+| 2.0.48        | 2.0.48                | 1.0.12             | 4.2.0               |
+
+Sample project: [Serenity Cucumber 4 Starter Project](https://github.com/serenity-bdd/serenity-cucumber4-starter).
+
+
+#### Cucumber 2
+
+_Note:_ Cucumber 2 is no longer supported in newer versions of Serenity.
+
+| serenity-core | serenity-maven-plugin | serenity-cucumber | Cucumber            |
+|---------------|-----------------------|-------------------|---------------------|
+| 2.1.5         | 2.1.5                 | 1.9.50            | 2.4.0               |
+| 2.0.90        | 2.0.90                | 1.9.49            | 2.4.0               |
+| 2.0.84        | 2.0.84                | 1.9.48            | 2.4.0               |
+| 2.0.69        | 2.0.69                | 1.9.45            | 2.4.0               |
+| 2.0.56        | 2.0.56                | 1.9.40            | 2.4.0               |
+| 2.0.54        | 2.0.54                | 1.9.39            | 2.4.0               |
+| 2.0.52        | 2.0.52                | 1.9.39            | 2.4.0               |
+| 2.0.48        | 2.0.48                | 1.9.37            | 2.4.0               |
+
+Sample project: [Serenity Cucumber Starter Project](https://github.com/serenity-bdd/serenity-cucumber-starter).
+
+### Serenity with JBehave
+
+JBehave is not currently supported in the current version of Serenity BDD, and no new development is being done with the Serenity/JBehave integration.
+
+| serenity-core | serenity-maven-plugin | serenity-jbehave  | JBehave             |
+|---------------|-----------------------|-------------------|---------------------|
+| 2.0.52        | 2.0.52                | 1.0.46            | 4.5                 |
+| 2.0.42        | 2.0.48                | 1.0.45            | 4.5                 |
+
+Sample project: [Serenity JBehave Starter Project](https://github.com/serenity-bdd/serenity-jbehave-starter).
+
+## Version number format
+
+Serenity uses a three-digit version number notation, with the following meaning:
+```
+ <major>.<minor>.<build>
+```
+The first and second digits are for more significant updates, including new features or important bug fixes. The third is
+updated automatically for every new release, and is generated by the build process.
+
+## Commit message conventions
+Commit messages are used to generate the release notes for each release. To do this, we loosely follow the AngularJS commit conventions: for commit messages to appear in the release notes, the title line needs to respect the following format:
+```
+  <type>: <message>
 ```
 
-Serenity 2.2.13 introduced integration with WebdriverManager to download webdriver binaries.
+where <type> is one of the following:
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation only changes
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- refactor: A code change that neither fixes a bug or adds a feature
+- perf: A code change that improves performance
+- test: Adding missing tests
+- chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
-## The sample scenario
-Both variations of the sample project uses the sample Cucumber scenario. In this scenario, Sergey (who likes to search for stuff) is performing a search on the internet:
-
-```Gherkin
-Feature: Search by keyword
-
-  Scenario: Searching for a term
-    Given Sergey is researching things on the internet
-    When he looks up "Cucumber"
-    Then he should see information about "Cucumber"
+Also commits can consists of several lines - to include some additional information in relase notes. For example:
+```  
+feat: A new feature to make something better
+now it will be available to call api.function() with additional parameters like api.function(Integer)
 ```
+it will be included in release notes as:
 
-### The Screenplay implementation
-The sample code in the master branch uses the Screenplay pattern. The Screenplay pattern describes tests in terms of actors and the tasks they perform. Tasks are represented as objects performed by an actor, rather than methods. This makes them more flexible and composable, at the cost of being a bit more wordy. Here is an example:
-```java
-    @Given("{actor} is researching things on the internet")
-    public void researchingThings(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theWikipediaHomePage());
-    }
+- feat: A new feature to make something better
 
-    @When("{actor} looks up {string}")
-    public void searchesFor(Actor actor, String term) {
-        actor.attemptsTo(
-                LookForInformation.about(term)
-        );
-    }
+  > now it will be available to call api.function() with additional parameters like api.function(Integer)
 
-    @Then("{actor} should see information about {string}")
-    public void should_see_information_about(Actor actor, String term) {
-        actor.attemptsTo(
-                Ensure.that(WikipediaArticle.HEADING).hasText(term)
-        );
-    }
-```
+Please take a look at release notes to find some more examples of mutiline commits.
 
-Screenplay classes emphasise reusable components and a very readable declarative style, whereas Lean Page Objects and Action Classes (that you can see further down) opt for a more imperative style.
+**For more information, read the Contributing guide for this repo.**
 
-The `NavigateTo` class is responsible for opening the Wikipedia home page:
-```java
-public class NavigateTo {
-    public static Performable theWikipediaHomePage() {
-        return Task.where("{0} opens the Wikipedia home page",
-                Open.browserOn().the(WikipediaHomePage.class));
-    }
-}
-```
+Starting from version 1.1.26, any commits without one of these prefixes will not appear in the release notes.
 
-The `LookForInformation` class does the actual search:
-```java
-public class LookForInformation {
-    public static Performable about(String searchTerm) {
-        return Task.where("{0} searches for '" + searchTerm + "'",
-                Enter.theValue(searchTerm)
-                        .into(SearchForm.SEARCH_FIELD)
-                        .thenHit(Keys.ENTER)
-        );
-    }
-}
-```
+## Licensing
 
-In Screenplay, we keep track of locators in light weight page or component objects, like this one:
-```java
-class SearchForm {
-    static Target SEARCH_FIELD = Target.the("search field")
-                                       .locatedBy("#searchInput");
+This distribution, as a whole, is licensed under the terms of the Apache License, Version 2.0
 
-}
-```
+## History - Serenity and Thucydides
 
-The Screenplay DSL is rich and flexible, and well suited to teams working on large test automation projects with many team members, and who are reasonably comfortable with Java and design patterns.
+Serenity was originally called [Thucydides](https://github.com/thucydides-webtests), and the package structure still reflects this history.
+Thucydides is discussed at length in the [BDD in Action](http://www.amazon.com/BDD-Action-Behavior-driven-development-lifecycle/dp/161729165X)
+under the name *Thucydides* - everything discussed in "BDD in Action" is directly applicable for Serenity except for the artifact names.
 
-### The Action Classes implementation.
+*Thucydides* was renamed *Serenity* in November 2014, and moving forward, all new work will be done on Serenity. The artifact names reflect this change, e.g.
+- *net.thucydides:thucydides-code* becomes *net.serenity:core*
+- *net.thucydides:thucydides-junit* becomes *net.serenity:serenity-junit*
+- *net.thucydides:thucydides-jbehave* becomes *net.serenity:serenity-jbehave*
+- *net.thucydides:thucydides-cucumber* becomes *net.serenity:serenity-cucumber*
 
-A more imperative-style implementation using the Action Classes pattern can be found in the `action-classes` branch. The glue code in this version looks this this:
-
-```java
-    @Given("^(?:.*) is researching things on the internet")
-    public void i_am_on_the_Wikipedia_home_page() {
-        navigateTo.theHomePage();
-    }
-
-    @When("she/he looks up {string}")
-    public void i_search_for(String term) {
-        searchFor.term(term);
-    }
-
-    @Then("she/he should see information about {string}")
-    public void all_the_result_titles_should_contain_the_word(String term) {
-        assertThat(searchResult.displayed()).contains(term);
-    }
-```
-
-These classes are declared using the Serenity `@Steps` annotation, shown below:
-```java
-    @Steps
-    NavigateTo navigateTo;
-
-    @Steps
-    SearchFor searchFor;
-
-    @Steps
-    SearchResult searchResult;
-```
-
-The `@Steps`annotation tells Serenity to create a new instance of the class, and inject any other steps or page objects that this instance might need.
-
-Each action class models a particular facet of user behaviour: navigating to a particular page, performing a search, or retrieving the results of a search. These classes are designed to be small and self-contained, which makes them more stable and easier to maintain.
-
-The `NavigateTo` class is an example of a very simple action class. In a larger application, it might have some other methods related to high level navigation, but in our sample project, it just needs to open the DuckDuckGo home page:
-```java
-public class NavigateTo {
-
-    WikipediaHomePage homePage;
-
-    @Step("Open the Wikipedia home page")
-    public void theHomePage() {
-        homePage.open();
-    }
-}
-```
-
-It does this using a standard Serenity Page Object. Page Objects are often very minimal, storing just the URL of the page itself:
-```java
-@DefaultUrl("https://wikipedia.org")
-public class WikipediaHomePage extends PageObject {}
-```
-
-The second class, `SearchFor`, is an interaction class. It needs to interact with the web page, and to enable this, we make the class extend the Serenity `UIInteractionSteps`. This gives the class full access to the powerful Serenity WebDriver API, including the `$()` method used below, which locates a web element using a `By` locator or an XPath or CSS expression:
-```java
-public class SearchFor extends UIInteractionSteps {
-
-    @Step("Search for term {0}")
-    public void term(String term) {
-        $(SearchForm.SEARCH_FIELD).clear();
-        $(SearchForm.SEARCH_FIELD).sendKeys(term, Keys.ENTER);
-    }
-}
-```
-
-The `SearchForm` class is typical of a light-weight Page Object: it is responsible uniquely for locating elements on the page, and it does this by defining locators or occasionally by resolving web elements dynamically.
-```java
-class SearchForm {
-    static By SEARCH_FIELD = By.cssSelector("#searchInput");
-}
-```
-
-The last step library class used in the step definition code is the `SearchResult` class. The job of this class is to query the web page, and retrieve a list of search results that we can use in the AssertJ assertion at the end of the test. This class also extends `UIInteractionSteps` and
-```java
-public class SearchResult extends UIInteractionSteps {
-    public String displayed() {
-        return find(WikipediaArticle.HEADING).getText();
-    }
-}
-```
-
-The `WikipediaArticle` class is a lean Page Object that locates the article titles on the results page:
-```java
-public class WikipediaArticle {
-    public static final By HEADING =  By.id("firstHeading");
-}
-```
-
-The main advantage of the approach used in this example is not in the lines of code written, although Serenity does reduce a lot of the boilerplate code that you would normally need to write in a web test. The real advantage is in the use of many small, stable classes, each of which focuses on a single job. This application of the _Single Responsibility Principle_ goes a long way to making the test code more stable, easier to understand, and easier to maintain.
-
-## Executing the tests
-To run the sample project, you can either just run the `CucumberTestSuite` test runner class, or run either `mvn verify` or `gradle test` from the command line.
-
-By default, the tests will run using Chrome. You can run them in Firefox by overriding the `driver` system property, e.g.
-```json
-$ mvn clean verify -Ddriver=firefox
-```
-Or
-```json
-$ gradle clean test -Pdriver=firefox
-```
-
-The test results will be recorded in the `target/site/serenity` directory.
-
-## Generating the reports
-Since the Serenity reports contain aggregate information about all of the tests, they are not generated after each individual test (as this would be extremenly inefficient). Rather, The Full Serenity reports are generated by the `serenity-maven-plugin`. You can trigger this by running `mvn serenity:aggregate` from the command line or from your IDE.
-
-They reports are also integrated into the Maven build process: the following code in the `pom.xml` file causes the reports to be generated automatically once all the tests have completed when you run `mvn verify`?
-
-```
-             <plugin>
-                <groupId>net.serenity-bdd.maven.plugins</groupId>
-                <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
-                <configuration>
-                    <tags>${tags}</tags>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-```
-
-## Simplified WebDriver configuration and other Serenity extras
-The sample projects both use some Serenity features which make configuring the tests easier. In particular, Serenity uses the `serenity.conf` file in the `src/test/resources` directory to configure test execution options.
-### Webdriver configuration
-The WebDriver configuration is managed entirely from this file, as illustrated below:
-```java
-webdriver {
-    driver = chrome
-}
-headless.mode = true
-
-chrome.switches="""--start-maximized;--test-type;--no-sandbox;--ignore-certificate-errors;
-                   --disable-popup-blocking;--disable-default-apps;--disable-extensions-file-access-check;
-                   --incognito;--disable-infobars,--disable-gpu"""
-
-```
-
-Serenity uses WebDriverManager to download the WebDriver binaries automatically before the tests are executed.
-
-### Environment-specific configurations
-We can also configure environment-specific properties and options, so that the tests can be run in different environments. Here, we configure three environments, __dev__, _staging_ and _prod_, with different starting URLs for each:
-```json
-environments {
-  default {
-    webdriver.base.url = "https://duckduckgo.com"
-  }
-  dev {
-    webdriver.base.url = "https://duckduckgo.com/dev"
-  }
-  staging {
-    webdriver.base.url = "https://duckduckgo.com/staging"
-  }
-  prod {
-    webdriver.base.url = "https://duckduckgo.com/prod"
-  }
-}
-```
-
-You use the `environment` system property to determine which environment to run against. For example to run the tests in the staging environment, you could run:
-```json
-$ mvn clean verify -Denvironment=staging
-```
-
-See [**this article**](https://johnfergusonsmart.com/environment-specific-configuration-in-serenity-bdd/) for more details about this feature.
-
-## Want to learn more?
-For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:
-* **[Learn Serenity BDD Online](https://expansion.serenity-dojo.com/)** with online courses from the Serenity Dojo Training Library
-* **[Byte-sized Serenity BDD](https://www.youtube.com/channel/UCav6-dPEUiLbnu-rgpy7_bw/featured)** - tips and tricks about Serenity BDD
-* For regular posts on agile test automation best practices, join the **[Agile Test Automation Secrets](https://www.linkedin.com/groups/8961597/)** groups on [LinkedIn](https://www.linkedin.com/groups/8961597/) and [Facebook](https://www.facebook.com/groups/agiletestautomation/)
-* [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
+and so on.

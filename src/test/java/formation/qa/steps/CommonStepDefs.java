@@ -1,5 +1,6 @@
 package formation.qa.steps;
 
+import formation.automation.FwkLibrary.WaitLibrary;
 import formation.qa.PageObject.AcceuilPage;
 import formation.qa.PageObject.LoginPage;
 import io.cucumber.java.en.Given;
@@ -24,7 +25,7 @@ public class CommonStepDefs {
 
     @Then("Verifier le pathname contient {string}")
     public void verifier_le_pathname_contient(String expectedPath) {
-
+        WaitLibrary.waitUntilUrlContains(accueilPage,expectedPath,10);
     }
 
 }

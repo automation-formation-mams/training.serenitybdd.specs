@@ -1,5 +1,6 @@
 package formation.qa.PageObject;
 
+import formation.automation.FwkLibrary.WaitLibrary;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -21,4 +22,8 @@ public class MenuHeader extends PageObject {
     }
 
     // ==================================== METHODS ==================================== //
+
+    public void AccesToMenuPage(String MenuTitle) {
+        this.MenuHeaderByName(MenuTitle).click();
+    }
 }
