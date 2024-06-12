@@ -12,10 +12,10 @@ public class MenuHeader extends PageObject {
     // ============================ OBJECTS ============================
 
     @FindBy(xpath = "//a[contains(.,'Home')]")
-    public WebElement HomeMenu;
+    public WebElementFacade HomeMenu;
 
     @FindBy(xpath = "//a[contains(.,'Logged in as')]")
-    public WebElement LoggedInAs;
+    public WebElementFacade LoggedInAs;
 
     public WebElementFacade MenuHeaderByName(String headerName) {
         return this.find(By.xpath("//a[contains(.,'" + headerName + "')]"));
