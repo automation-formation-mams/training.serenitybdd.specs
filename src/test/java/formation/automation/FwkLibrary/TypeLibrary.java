@@ -1,7 +1,6 @@
-package com.automation.FwkLibrary;
+package formation.automation.FwkLibrary;
 
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.Keys;
 
 public class TypeLibrary {
     public static final String EMPTY = "_EMPTY_";

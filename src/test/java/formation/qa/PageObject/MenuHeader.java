@@ -1,4 +1,4 @@
-package com.automation.PageObject;
+package formation.qa.PageObject;
 
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;

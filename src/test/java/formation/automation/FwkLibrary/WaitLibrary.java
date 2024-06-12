@@ -1,4 +1,4 @@
-package com.automation.FwkLibrary;
+package formation.automation.FwkLibrary;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -47,27 +47,32 @@ public class WaitLibrary {
         }
     }
 
-    public static void waitToTextToBePresentInElement(PageObject page, WebElementFacade element, String text, Duration timeoutInSeconds) {
+    public static void waitToTextToBePresentInElement(PageObject page, WebElementFacade element, String text, int timeoutInSeconds) {
+       Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), timeoutInSeconds);
         waiter.until(loweredTextToBePresentInElement(element, text.toLowerCase()));
     }
 
-    public static void waitUntilUrlContains(PageObject page, String text, Duration timeoutInSeconds) {
+    public static void waitUntilUrlContains(PageObject page, String text, int timeoutInSeconds) {
+        Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), timeoutInSeconds);
         waiter.until(ExpectedConditions.urlContains(text));
     }
 
-    public static void waitUntilElementIsVisible(PageObject page, WebElementFacade element, Duration timeoutInSeconds) {
+    public static void waitUntilElementIsVisible(PageObject page, WebElementFacade element, int timeoutInSeconds) {
+       Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), timeoutInSeconds);
         waiter.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void waitUntilElementIsClickable(PageObject page, WebElementFacade element, Duration timeoutInSeconds) {
+    public static void waitUntilElementIsClickable(PageObject page, WebElementFacade element, int timeoutInSeconds) {
+       Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), timeoutInSeconds);
         waiter.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public static void waitUntilElementIsNotVisible(PageObject page, WebElementFacade element, Duration timeoutInSeconds) {
+    public static void waitUntilElementIsNotVisible(PageObject page, WebElementFacade element, int timeoutInSeconds) {
+       Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), timeoutInSeconds);
         waiter.until(ExpectedConditions.invisibilityOf(element));
     }
