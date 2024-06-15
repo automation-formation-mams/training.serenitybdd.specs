@@ -1,15 +1,11 @@
-package formation.qa.steps;
+package formation.StepDefinitions;
 
-import formation.automation.FwkLibrary.AssertLibrary;
-import formation.automation.FwkLibrary.CheckLibrary;
-import formation.automation.FwkLibrary.WaitLibrary;
-import formation.qa.PageObject.AcceuilPage;
-import formation.qa.PageObject.LoginPage;
-import formation.qa.PageObject.MenuHeader;
+import FwkLibrary.CheckLibrary;
+import formation.PageObject.AcceuilPage;
+import formation.PageObject.MenuHeader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 
 
 public class CommonStepDefs {

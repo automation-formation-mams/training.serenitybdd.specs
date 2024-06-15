@@ -1,4 +1,4 @@
-package formation.automation.FwkLibrary;
+package FwkLibrary;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 

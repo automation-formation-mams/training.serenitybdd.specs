@@ -1,7 +1,4 @@
-package formation.automation.FwkLibrary;
-
-import net.serenitybdd.core.pages.PageObject;
-import org.openqa.selenium.TimeoutException;
+package FwkLibrary;
 
 public class AssertLibrary {
 

@@ -1,14 +1,10 @@
-package formation.qa.PageObject;
+package formation.PageObject;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.serenitybdd.screenplay.actions.Click;
-import org.openqa.selenium.WebElement;
 
-import  formation.automation.FwkLibrary.*;
-
-import java.time.Duration;
+import FwkLibrary.*;
 
 public class AcceuilPage extends PageObject {
 

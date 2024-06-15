@@ -1,10 +1,7 @@
-package formation.automation.FwkLibrary;
+package FwkLibrary;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.serenitybdd.screenplay.questions.CurrentlyEnabled;
 import org.openqa.selenium.TimeoutException;
-import static org.junit.Assert.*;
 
 public class CheckLibrary {
 
