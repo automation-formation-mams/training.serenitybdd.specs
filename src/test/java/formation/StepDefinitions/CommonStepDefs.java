@@ -19,14 +19,15 @@ public class CommonStepDefs {
         accueilPage.AutoriserCoockiesIfVisible();
     }
 
-    @When("Cliquer sur le menu {string}")
-    public void cliquer_sur_le_menu(String menu) {
-        menuHeader.AccesToMenuPage(menu);
-    }
-
     @Then("Verifier le pathname contient {string}")
     public void verifier_le_pathname_contient(String expectedPath) {
         CheckLibrary.check_url_contains(accueilPage,expectedPath);
+    }
+
+    @Given("Lancer application web")
+    public void lancer_URL_depuis_config() {
+        accueilPage.openUrlFromConfig();
+        accueilPage.AutoriserCoockiesIfVisible();
     }
 
 }

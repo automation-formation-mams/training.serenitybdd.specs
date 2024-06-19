@@ -19,6 +19,11 @@ public class AcceuilPage extends PageObject {
         WaitLibrary.waitUntilUrlContains(AcceuilPage.this,url,10);
     }
 
+    public void openUrlFromConfig() {
+        this.open();
+        WaitLibrary.waitUntilUrlContains(AcceuilPage.this,this.getDriver().getCurrentUrl(),10);
+    }
+
     public void AutoriserCoockiesIfVisible()
     {
         ClickLibrary.clickIfExists(AutoriserCoockiesBtn);

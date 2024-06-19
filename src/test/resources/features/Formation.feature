@@ -4,3 +4,9 @@ Feature: Formation Serenity BDD
     Given Lancer URL "https://automationexercise.com/"
     When Cliquer sur le menu "Login"
     Then Verifier le pathname contient "/login"
+
+  Scenario: 02 - Lancer l'application depuis la config
+    Given Lancer application web
+    When Cliquer sur le menu "Login"
+    Then Verifier le pathname contient "/login"
+
