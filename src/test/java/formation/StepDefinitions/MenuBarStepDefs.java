@@ -8,6 +8,10 @@ public class MenuBarStepDefs {
 
     MenuHeader menuHeader;
 
+    @When("Menu Bar - Acceder page via link {string}")
+    public void menuBarAccederPageViaLink(String LinkName) {
+        menuHeader.AccesToMenuPage(LinkName);
+    }
 
 
 }

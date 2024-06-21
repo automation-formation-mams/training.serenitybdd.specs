@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
-    AcceuilPage acceuilPage;
 
     @Before
     public void beforeScenario() {

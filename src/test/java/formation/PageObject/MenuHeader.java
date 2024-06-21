@@ -12,13 +12,13 @@ public class MenuHeader extends PageObject {
     @FindBy(xpath = "//a[contains(.,\"What's New\")]")
     public WebElementFacade WhatsNewMenu;
 
-    @FindBy(className = "logged-in")
+    @FindBy(xpath = "//*[@class='logged-in']")
     public WebElementFacade LoggedInAs;
 
     @FindBy(id = "search")
     public WebElementFacade SearchInput;
 
-    @FindBy(className = "action showcart")
+    @FindBy(xpath = "//*[@class='action showcart']")
     public WebElementFacade CartBtn;
 
     public WebElementFacade MenuHeaderByName(String headerName) {
