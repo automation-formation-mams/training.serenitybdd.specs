@@ -16,7 +16,6 @@ public class CommonStepDefs {
     @Given("Lancer URL {string}")
     public void lancer_URL(String url) {
         accueilPage.accessToPage(url);
-        accueilPage.AutoriserCoockiesIfVisible();
     }
 
     @Then("Verifier le pathname contient {string}")
@@ -27,7 +26,6 @@ public class CommonStepDefs {
     @Given("Lancer application web")
     public void lancer_URL_depuis_config() {
         accueilPage.openUrlFromConfig();
-        accueilPage.AutoriserCoockiesIfVisible();
     }
 
 }

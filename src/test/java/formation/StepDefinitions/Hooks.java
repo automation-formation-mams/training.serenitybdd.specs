@@ -1,8 +1,12 @@
 package formation.StepDefinitions;
+
+import formation.PageObject.AcceuilPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import io.cucumber.java.BeforeStep;
 import io.cucumber.java.AfterStep;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +14,7 @@ import org.slf4j.LoggerFactory;
 public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
+    AcceuilPage acceuilPage;
 
     @Before
     public void beforeScenario() {

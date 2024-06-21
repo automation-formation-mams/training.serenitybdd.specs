@@ -60,19 +60,19 @@ public class WaitLibrary {
     }
 
     public static void waitUntilElementIsVisible(PageObject page, WebElementFacade element, int timeoutInSeconds) {
-       Duration duration = Duration.ofSeconds(timeoutInSeconds);
+        Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), duration);
         waiter.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void waitUntilElementIsClickable(PageObject page, WebElementFacade element, int timeoutInSeconds) {
-       Duration duration = Duration.ofSeconds(timeoutInSeconds);
+        Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), duration);
         waiter.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static void waitUntilElementIsNotVisible(PageObject page, WebElementFacade element, int timeoutInSeconds) {
-       Duration duration = Duration.ofSeconds(timeoutInSeconds);
+        Duration duration = Duration.ofSeconds(timeoutInSeconds);
         WebDriverWait waiter = new WebDriverWait(page.getDriver(), duration);
         waiter.until(ExpectedConditions.invisibilityOf(element));
     }

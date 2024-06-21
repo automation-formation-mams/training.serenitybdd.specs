@@ -22,16 +22,17 @@ public class TypeLibrary {
             element.type(s);
     }
 
-    public static void type(WebElementFacade element, String s) {
-        type(element, s, true, "");
+    public static void type(WebElementFacade element, String ValueToType) {
+        type(element, ValueToType, true, "");
     }
 
-    public static void typeAndTab(WebElementFacade element, String s) {
-        type(element, s, true, TypeLibrary.TAB);
+    public static void typeAndTab(WebElementFacade element, String ValueToType) {
+        type(element, ValueToType, true, TypeLibrary.TAB);
     }
 
-    public static void typeAndEnter(WebElementFacade element, String s) {
-        type(element, s, true, TypeLibrary.ENTER);
+    public static void typeAndEnter(WebElementFacade element, String ValueToType) {
+        type(element, ValueToType, true, TypeLibrary.ENTER);
     }
+
 
 }

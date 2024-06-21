@@ -8,15 +8,16 @@ public class LoginPage extends PageObject {
 
     // ============================ OBJECTS ============================
 
-    @FindBy(xpath = "//input[@data-qa='login-email']")
+    @FindBy(id = "email")
     public WebElementFacade loginInput;
 
-    @FindBy(xpath = "//input[@data-qa='login-password']")
+    @FindBy(id = "pass")
     public WebElementFacade passwordInput;
 
-    @FindBy(xpath = "//button[@data-qa='login-button']")
-    public WebElementFacade LoginBtn;
+    @FindBy(id = "send2")
+    public WebElementFacade SignInBtn;
 
-    // ==================================== METHODS ==================================== //
+    // ==================================== METHODS ====================================
+
 
 }
