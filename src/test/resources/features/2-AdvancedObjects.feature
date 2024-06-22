@@ -23,4 +23,29 @@ Feature: Formation - Advanced Objects
     And Alert - Valider Alert window
     Then Common - Verifier Presence Texte "Nice to meet you, Formation Idemia!"
 
+  Scenario: 03 - Gestion des Fenetres
+    Given Common - Lancer URL "https://practice-automation.com/window-operations/"
+    Then Common - Verifier le pathname contient "window-operations"
+    When Fenetre - Ouvrir Nouvel Onglet By "New Tab"
+    And Fenetre - Basculer vers l'onglet "Home | automateNow"
+    Then Common - Verifier Presence Texte "Start learning"
+    Then Common - Verifier Presence Texte "Our latest posts"
+    And Fenetre - Fermer l'onglet "Home | automateNow"
+    When Fenetre - Basculer vers l'onglet "Window Operations | Practice Automation"
+    Then Common - Verifier Presence Texte "Click to open a new browser tab."
+    Then Common - Verifier Presence Texte "Click to replace the current page with a new URL."
+    Then Common - Verifier Presence Texte "Click to open a new browser window."
+    When Fenetre - Ouvrir Nouvel Onglet By "Replace Window"
+    Then Common - Verifier Presence Texte "Start learning"
+    Then Common - Verifier Presence Texte "Our latest posts"
+    Then Common - Verifier le pathname contient "https://automatenow.io/"
+    Given Common - Lancer URL "https://practice-automation.com/window-operations/"
+    When Fenetre - Ouvrir Nouvel Onglet By "New Window"
+    And Fenetre - Basculer vers l'onglet "Home | automateNow"
+    Then Common - Verifier Presence Texte "Start learning"
+    Then Common - Verifier Presence Texte "Our latest posts"
+    And Fenetre - Fermer l'onglet "Home | automateNow"
+
+
+
 
