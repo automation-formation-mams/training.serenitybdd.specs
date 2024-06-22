@@ -7,7 +7,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class MenuHeader extends PageObject {
 
-    // ============================ OBJECTS ============================
+    // ==================================== OBJECTS ====================================
 
     @FindBy(xpath = "//a[contains(.,\"What's New\")]")
     public WebElementFacade WhatsNewMenu;

@@ -9,7 +9,7 @@ import FwkLibrary.*;
 
 public class AcceuilPage extends PageObject {
 
-    // ============================ OBJECTS ============================
+    // ==================================== OBJECTS ====================================
 
     public WebElementFacade linkByText(String texte) {
         return this.find(By.xpath("//a[contains(.,'" + texte + "')]"));

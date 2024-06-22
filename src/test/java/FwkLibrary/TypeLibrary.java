@@ -7,19 +7,19 @@ public class TypeLibrary {
     public static final String ENTER = "{Return}";
     public static final String TAB = "{Tab}";
 
-    public static void type(WebElementFacade element, String s, Boolean clearBeforeTyping, String typeAfter) {
-        String txt = s;
-        if (s.equalsIgnoreCase(TypeLibrary.EMPTY)) {
+    public static void type(WebElementFacade element, String TexteToType, Boolean clearBeforeTyping, String typeAfter) {
+        String txt = TexteToType;
+        if (TexteToType.equalsIgnoreCase(TypeLibrary.EMPTY)) {
             txt = "";
         }
         if (clearBeforeTyping)
             element.clear();
         if (typeAfter.equals(TypeLibrary.TAB))
-            element.typeAndTab(s);
+            element.typeAndTab(TexteToType);
         else if (typeAfter.equals(TypeLibrary.ENTER))
-            element.typeAndEnter(s);
+            element.typeAndEnter(TexteToType);
         else
-            element.type(s);
+            element.type(TexteToType);
     }
 
     public static void type(WebElementFacade element, String ValueToType) {

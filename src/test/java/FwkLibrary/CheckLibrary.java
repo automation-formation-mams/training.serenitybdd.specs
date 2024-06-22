@@ -35,7 +35,7 @@ public class CheckLibrary {
 
     public static void CheckTextPresent(PageObject page,String text,int timeout) {
         try {
-            WebElementFacade element = page.find(By.xpath("//*[contains(text(),'" + text + "')]"));
+            WebElementFacade element = page.find(By.xpath("//body//*[contains(text(),'" + text + "')]"));
 
             if( CheckElementVisibility(page,element,timeout))
             {

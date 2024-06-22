@@ -10,11 +10,14 @@ Feature: Formation - Account Management
       | John      | Doe      | form_$Random@auto.com | password@123 | password@123    |
     Then Common - Verifier Presence Texte "Thank you for registering with Main Website Store"
 
-  @tagTest
   Scenario: 02 - Se Connecter Avec un Login Valid
     Given Common - Lancer URL "https://magento.softwaretestingboard.com/"
     Then Common - Verifier le pathname contient "softwaretestingboard"
     When Menu Bar - Acceder page via link "Sign In"
-
-
+    Then Common - Verifier le pathname contient "/login/referer/"
+    Then Common - Verifier Presence Texte "Customer Login"
+    When Authentication - Se Connecter à LUMA
+      | email                         | password      |
+      | formation.idemia@serenity.com | Password@2024 |
+    Then Common - Verifier Presence Texte "Welcome, Formation Idemia!"
 

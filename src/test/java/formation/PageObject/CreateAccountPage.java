@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 
 public class CreateAccountPage extends PageObject {
 
-    // ============================ OBJECTS ============================
+    // ==================================== OBJECTS ====================================
 
     @FindBy(id = "firstname")
     WebElementFacade FirstnameInput;

@@ -10,7 +10,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class ProductsPage extends PageObject {
 
-    // ============================ OBJECTS ============================
+    // ==================================== OBJECTS ====================================
 
     @FindBy(id = "search_product")
     public WebElementFacade searchProductsInput;
