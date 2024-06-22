@@ -10,6 +10,7 @@ Feature: Formation - Account Management
       | John      | Doe      | form_$Random@auto.com | password@123 | password@123    |
     Then Common - Verifier Presence Texte "Thank you for registering with Main Website Store"
 
+    @TestTag
   Scenario: 02 - Se Connecter Avec un Login Valid
     Given Common - Lancer URL "https://magento.softwaretestingboard.com/"
     Then Common - Verifier le pathname contient "softwaretestingboard"

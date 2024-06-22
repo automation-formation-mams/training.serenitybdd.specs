@@ -1,3 +1,4 @@
+@TestTag
 Feature: Formation - Advanced Objects
 
   Scenario: 01 - Gestion des iframes
