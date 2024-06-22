@@ -1,5 +1,6 @@
 package formation.PageObject;
 
+import FwkLibrary.DataLibrary;
 import FwkLibrary.TypeLibrary;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
@@ -34,9 +35,16 @@ public class CreateAccountPage extends PageObject {
 
     public void RemplirFormulaireCompte(String firstname,String lastname,String email, String password, String ConfirmPassword)
     {
+        String EmailUnique = email;
+        String randomData = DataLibrary.generateRandomValue("AlphaNumeric",5,"NA");
+        if(email.contains("$Random"))
+        {
+            EmailUnique =  EmailUnique.replace("$Random",randomData);
+        }
         TypeLibrary.type(this.FirstnameInput,firstname);
         TypeLibrary.type(this.LastnameInput,lastname);
-        TypeLibrary.type(this.EmailAddressInput,email);
+
+        TypeLibrary.type(this.EmailAddressInput,EmailUnique);
         TypeLibrary.type(this.PasswordInput,password);
         TypeLibrary.type(this.PasswordConfirmationInput,ConfirmPassword);
     }

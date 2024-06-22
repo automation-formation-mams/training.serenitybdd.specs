@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
+    AcceuilPage accueilPage;
 
     @Before
     public void beforeScenario() {
@@ -27,6 +28,9 @@ public class Hooks {
         logger.info("Executing After Scenario Hook");
         System.out.println("Hooks - afterScenario");
         // Code de nettoyage après chaque scénario
+        accueilPage.getDriver().close();
+        accueilPage.getDriver().quit();
+
     }
 
     @BeforeStep

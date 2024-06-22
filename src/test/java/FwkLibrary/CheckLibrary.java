@@ -3,6 +3,7 @@ package FwkLibrary;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,9 +36,17 @@ public class CheckLibrary {
     public static void CheckTextPresent(PageObject page,String text,int timeout) {
         try {
             WebElementFacade element = page.find(By.xpath("//*[contains(text(),'" + text + "')]"));
-            CheckElementVisibility(page,element,timeout);
-            System.out.println("The Text ["+text+"] doest exist");
+
+            if( CheckElementVisibility(page,element,timeout))
+            {
+                System.out.println("The Text ["+text+"] doest exist");
+            }
+            else {
+                Assert.assertFalse("The Text ["+text+"] does'nt exist",true);
+            }
+
         } catch (Exception e) {
+
             throw new RuntimeException("The Text ["+text+"] does'nt exist", e);
         }
     }

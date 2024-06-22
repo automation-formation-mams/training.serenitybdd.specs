@@ -4,6 +4,8 @@
 *.ear
 *.jar
 
+#Project
+TempData/
 # Maven
 target/
 pom.xml.tag
