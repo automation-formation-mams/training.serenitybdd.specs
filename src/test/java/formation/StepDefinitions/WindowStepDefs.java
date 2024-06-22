@@ -24,4 +24,6 @@ WindowHandlingPage windowHandlingPage;
     public void fenetreFermerLOnglet(String WindowTitle) {
         ActionLibrary.closeWindowWithTitle(windowHandlingPage,WindowTitle);
     }
+
+
 }

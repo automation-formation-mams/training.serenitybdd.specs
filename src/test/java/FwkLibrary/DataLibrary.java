@@ -1,15 +1,31 @@
 package FwkLibrary;
+
 import java.io.*;
 import java.nio.file.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.builder.fluent.Configurations;
+
 public class DataLibrary {
     private static String dateCode = null;
+
+    public static String getGlobalPropertieByKey(String propertyName) {
+        String property = "";
+        try {
+            Configurations configurations = new Configurations();
+            Configuration config = configurations.properties(new File("global.properties"));
+            property = config.getString(propertyName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return property;
+    }
 
     public static void generateCodeDate() {
         LocalDateTime time = LocalDateTime.now();
@@ -124,7 +140,7 @@ public class DataLibrary {
     }
 
     public static String generateSpecialCharacters(int length) {
-        String  characters = "+.-_";
+        String characters = "+.-_";
         return generateRandom(characters, length);
     }
 
