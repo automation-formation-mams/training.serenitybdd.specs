@@ -37,7 +37,7 @@ public class CheckLibrary {
         try {
             WebElementFacade element = page.find(By.xpath("//body//*[contains(text(),'" + text + "')]"));
 
-            if( CheckElementVisibility(page,element,timeout))
+            if(CheckElementVisibility(page,element,timeout))
             {
                 System.out.println("The Text ["+text+"] doest exist");
             }

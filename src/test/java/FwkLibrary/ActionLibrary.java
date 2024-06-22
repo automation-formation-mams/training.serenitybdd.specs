@@ -2,7 +2,10 @@ package FwkLibrary;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ActionLibrary {
 
@@ -32,6 +35,64 @@ public class ActionLibrary {
 
     public static void scrollByPixel(PageObject page, int x, int y) {
         ((JavascriptExecutor) page.getDriver()).executeScript(("window.scrollBy(" + x + "," + y + ")"));
+    }
+
+    public static boolean validateMessageAlertWindow(PageObject page, WebElementFacade alertTrrigerBtn, String expectedText) {
+        try {
+            alertTrrigerBtn.click();
+            // Attendre que l'alerte soit présente
+            page.waitFor(ExpectedConditions.alertIsPresent());
+            Alert alert = page.getDriver().switchTo().alert();
+            String alertText = alert.getText();
+            AssertLibrary.assertContains(alertText,expectedText);
+//            alert.accept();  // Fermer l'alert
+            return alertText.equals(expectedText);
+        } catch (Exception e) {
+            System.out.println("Alert window not found: " + e.getMessage());
+            Assert.assertFalse("Alert Problem does'nt exist",true);
+            return false;
+        }
+    }
+
+    public static boolean validerAlertWindow(PageObject page) {
+        try {
+            // Attendre que l'alerte soit présente
+            page.waitFor(ExpectedConditions.alertIsPresent());
+            Alert alert = page.getDriver().switchTo().alert();
+            alert.accept();  // Fermer l'alert
+            return true;
+        } catch (Exception e) {
+            System.out.println("Alert window not found: " + e.getMessage());
+            Assert.assertFalse("Alert Problem does'nt exist",true);
+            return false;
+        }
+    }
+
+    public static boolean dismissAlertWindow(PageObject page) {
+        try {
+            // Attendre que l'alerte soit présente
+            page.waitFor(ExpectedConditions.alertIsPresent());
+            Alert alert = page.getDriver().switchTo().alert();
+            alert.dismiss();  // Fermer l'alert
+            return true;
+        } catch (Exception e) {
+            System.out.println("Alert window not found: " + e.getMessage());
+            Assert.assertFalse("Alert Problem does'nt exist",true);
+            return false;
+        }
+    }
+    public static boolean writeInPromptWindow(PageObject page,String TextToType) {
+        try {
+            // Attendre que l'alerte soit présente
+            page.waitFor(ExpectedConditions.alertIsPresent());
+            Alert alert = page.getDriver().switchTo().alert();
+            alert.sendKeys(TextToType);  // Fermer l'alert
+            return true;
+        } catch (Exception e) {
+            System.out.println("Alert window not found: " + e.getMessage());
+            Assert.assertFalse("Alert Problem does'nt exist",true);
+            return false;
+        }
     }
 
 
