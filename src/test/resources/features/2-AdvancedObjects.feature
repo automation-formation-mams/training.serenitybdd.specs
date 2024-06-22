@@ -44,6 +44,7 @@ Feature: Formation - Advanced Objects
     And Fenetre - Basculer vers l'onglet "Home | automateNow"
     Then Common - Verifier Presence Texte "Start learning"
     Then Common - Verifier Presence Texte "Our latest posts"
+    Then Common - Verifier le pathname contient "https://automatenow.io/"
     And Fenetre - Fermer l'onglet "Home | automateNow"
 
 
